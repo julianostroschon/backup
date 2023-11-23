@@ -1,0 +1,38 @@
+alias zconf="code ~/.zshrc"
+alias zsource="source ~/.zshrc"
+
+##remotos
+alias odin="ssh odin@10.10.0.6"
+# alias local="ssh root@10.10.0.9"
+alias elyte="ssh root@10.0.0.9"
+
+alias gim="gitmoji -c"
+alias dcupd="docker-compose up -d"
+alias dcdwn="docker-compose down"
+alias recon="dcdwn -v && dcupd"
+
+alias Projects="cd ~/Documents/Projects"
+alias Partithura="Projects/partithura/"
+alias Paralelos="Projects/paralelos/"
+alias frontify="Partithura/frontend-vuetify"
+alias injectDir="Partithura/inject"
+
+# #back-node
+alias backNode="Partithura/backend-node"
+alias prepare="nr db:prepare"
+alias criaMigration="nr knex migrate:make"
+alias rollback="nr knex migrate:rollback"
+alias latest="nr knex migrate:latest"
+
+# # data-sync
+alias data-sync-injection="Partithura/data-sync-injection"
+alias start=" data-sync && nvm use 18 && nr build && yarn run:erp"
+alias stop="cd ~/Documents/data-sync-injection && nvm use 18 && yarn run:stop"
+
+## git
+alias gmm="git merge origin/master"
+alias gaa="git add ."
+alias gim="gitmoji -c"
+
+
+alias patichon="gcm && gl && addTag -v patch"
