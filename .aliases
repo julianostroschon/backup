@@ -11,11 +11,13 @@ alias dcupd="docker-compose up -d"
 alias dcdwn="docker-compose down"
 alias recon="dcdwn -v && dcupd"
 
-alias Projects="cd ~/Documents/Projects"
-alias Partithura="Projects/partithura/"
-alias Paralelos="Projects/paralelos/"
-alias frontify="Partithura/frontend-vuetify"
-alias injectDir="Partithura/inject"
+alias Projectss="cd ~/Documents/Projects"
+alias Partithura="Projectss && cd partithura"
+alias Paralelos="Projectss && cd paralelos"
+alias frontify="Partithura && cd frontend-vuetify"
+alias infra="Partithura && cd infra-devops"
+alias injectDir="Partithura && cd inject"
+alias allias="cd ~/backup/ && code ./.aliases"
 
 # #back-node
 alias backNode="Partithura/backend-node"
@@ -33,6 +35,11 @@ alias stop="cd ~/Documents/data-sync-injection && nvm use 18 && yarn run:stop"
 alias gmm="git merge origin/master"
 alias gaa="git add ."
 alias gim="gitmoji -c"
+alias gfs="git flow feature start"
+alias gff="git flow feature finish"
+
+## infra-devops
+alias deploy="docker compose run --rm tooling"
 
 
 alias patichon="gcm && gl && addTag -v patch"
