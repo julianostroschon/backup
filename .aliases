@@ -1,10 +1,13 @@
 alias zconf="code ~/.zshrc"
 alias zsource="source ~/.zshrc"
 
+
+alias dev="nr dev"
 ##remotos
-alias odin="ssh odin@10.10.0.6"
-# alias local="ssh root@10.10.0.9"
-alias elyte="ssh root@10.0.0.9"
+# alias odin="ssh odin@10.10.0.6"
+alias lpartithura="ssh root@10.10.0.2"
+alias lelyte="ssh root@10.0.0.10"
+alias wpp-partithura="ssh root@159.223.177.10"
 
 alias gim="gitmoji -c"
 alias dcupd="docker-compose up -d"
@@ -17,29 +20,37 @@ alias Paralelos="Projectss && cd paralelos"
 alias frontify="Partithura && cd frontend-vuetify"
 alias infra="Partithura && cd infra-devops"
 alias injectDir="Partithura && cd inject"
-alias allias="cd ~/backup/ && code ./.aliases"
+alias allias="code ~/backup/.aliases"
 
 # #back-node
-alias backNode="Partithura/backend-node"
+alias backNode="Partithura && cd backend-node"
 alias prepare="nr db:prepare"
 alias criaMigration="nr knex migrate:make"
 alias rollback="nr knex migrate:rollback"
 alias latest="nr knex migrate:latest"
+alias wtest="nr test:unit -w"
 
 # # data-sync
-alias data-sync-injection="Partithura/data-sync-injection"
-alias start=" data-sync && nvm use 18 && nr build && yarn run:erp"
-alias stop="cd ~/Documents/data-sync-injection && nvm use 18 && yarn run:stop"
+alias data-sync="Partithura && cd data-sync-injection"
+alias start="nvm use 18 && nr build && yarn run:erp"
+# alias stop="cd ~/Documents/data-sync-injection && nvm use 18 && yarn run:stop"
+alias cleanEnvTs="echo 'export default {} as Record<string, string | number>' > src/env.ts"
+alias buildall="gcm && gmm && nr build:all && cleanEnvTs"
+alias freeBuild="data-sync && cleanEnvTs && gcm && gmm && start"
+
+# # Whatsapp
+alias run:whats="cd /Users/julianostroschon/Documents/Projects/partithura/wpp-web && nr dev"
 
 ## git
 alias gmm="git merge origin/master"
 alias gaa="git add ."
 alias gim="gitmoji -c"
-alias gfs="git flow feature start"
+alias gffs="git flow feature start"
+alias gfs="gcd && gmm && gffs"
 alias gff="git flow feature finish"
 
 ## infra-devops
 alias deploy="docker compose run --rm tooling"
-
+alias generate="nr generate"
 
 alias patichon="gcm && gl && addTag -v patch"
