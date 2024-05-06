@@ -5,9 +5,10 @@ alias zsource="source ~/.zshrc"
 alias dev="nr dev"
 ##remotos
 # alias odin="ssh odin@10.10.0.6"
+# alias infra="ssh root@10.10.0.2"
 alias lpartithura="ssh root@10.10.0.2"
 alias lelyte="ssh root@10.0.0.10"
-alias wpp-partithura="ssh root@159.223.177.10"
+alias wpp-partithura="ssh root@165.22.35.110"
 
 alias gim="gitmoji -c"
 alias dcupd="docker-compose up -d"
@@ -18,7 +19,7 @@ alias Projectss="cd ~/Documents/Projects"
 alias Partithura="Projectss && cd partithura"
 alias Paralelos="Projectss && cd paralelos"
 alias frontify="Partithura && cd frontend-vuetify"
-alias infra="Partithura && cd infra-devops"
+alias infraDir="Partithura && cd infra-devops"
 alias injectDir="Partithura && cd inject"
 alias allias="code ~/backup/.aliases"
 
@@ -50,7 +51,8 @@ alias gfs="gcd && gmm && gffs"
 alias gff="git flow feature finish"
 
 ## infra-devops
-alias deploy="docker compose run --rm tooling"
+alias deploy="infraDir && gl && docker compose run --rm tooling"
 alias generate="nr generate"
 
+## version
 alias patichon="gcm && gl && addTag -v patch"
