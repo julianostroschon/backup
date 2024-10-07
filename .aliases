@@ -1,13 +1,16 @@
-alias zconf="code ~/.zshrc"
+alias editor="code-insiders"
+alias runner="nr"
+
+alias zconf="editor ~/.zshrc"
 alias zsource="source ~/.zshrc"
 
 
-alias dev="nr dev"
+alias dev="runner dev"
 ##remotos
 # alias odin="ssh odin@10.10.0.6"
 # alias infra="ssh root@10.10.0.2"
 alias lpartithura="ssh root@10.10.0.2"
-alias lelyte="ssh root@10.0.0.10"
+alias lelyte="ssh root@10.0.0.11"
 alias wpp-partithura="ssh root@165.22.35.110"
 
 alias gim="gitmoji -c"
@@ -21,26 +24,26 @@ alias Paralelos="Projectss && cd paralelos"
 alias frontify="Partithura && cd frontend-vuetify"
 alias infraDir="Partithura && cd infra-devops"
 alias injectDir="Partithura && cd inject"
-alias allias="code ~/backup/.aliases"
+alias allias="editor ~/backup/.aliases"
 
 # #back-node
 alias backNode="Partithura && cd backend-node"
-alias prepare="nr db:prepare"
-alias criaMigration="nr knex migrate:make"
-alias rollback="nr knex migrate:rollback"
-alias latest="nr knex migrate:latest"
-alias wtest="nr test:unit -w"
+alias prepare="runner db:prepare"
+alias criaMigration="runner knex migrate:make"
+alias rollback="runner knex migrate:rollback"
+alias latest="runner knex migrate:latest"
+alias wtest="runner test:unit --watch"
 
 # # data-sync
 alias data-sync="Partithura && cd data-sync-injection"
-alias start="nvm use 18 && nr build && yarn run:erp"
+alias start="nvm use 18 && runner build && yarn run:erp"
 # alias stop="cd ~/Documents/data-sync-injection && nvm use 18 && yarn run:stop"
 alias cleanEnvTs="echo 'export default {} as Record<string, string | number>' > src/env.ts"
-alias buildall="gcm && gmm && nr build:all && cleanEnvTs"
+alias buildall="gcm && gmm && runner build:all && cleanEnvTs"
 alias freeBuild="data-sync && cleanEnvTs && gcm && gmm && start"
 
 # # Whatsapp
-alias run:whats="cd /Users/julianostroschon/Documents/Projects/partithura/wpp-web && nr dev"
+alias run:whats="cd /Users/julianostroschon/Documents/Projects/partithura/wpp-web && runner dev"
 
 ## git
 alias gmm="git merge origin/master"
@@ -52,7 +55,46 @@ alias gff="git flow feature finish"
 
 ## infra-devops
 alias deploy="infraDir && gl && docker compose run --rm tooling"
-alias generate="nr generate"
+alias generate="runner generate"
 
 ## version
 alias patichon="gcm && gl && addTag -v patch"
+
+create_new_tag() {
+  local increment=$1
+  local current_version
+  current_version=$(git describe --tags --abbrev=0)
+
+  current_version=${current_version#v}
+
+  IFS='.' read -r major minor patch <<< "$current_version"
+  major=$(echo "$major" | sed 's/^0*//')
+  minor=$(echo "${minor:-0}" | sed 's/^0*//')
+  patch=$(echo "${patch:-0}" | sed 's/^0*//')
+
+  case $increment in
+    major)
+      major=$((major + 1))
+      minor=0
+      patch=0
+      ;;
+    minor)
+      minor=$((minor + 1))
+      patch=0
+      ;;
+    patch)
+      patch=$((patch + 1))
+      ;;
+    *)
+      echo "Uso: create_tag {major|minor|patch}"
+      return 1
+      ;;
+  esac
+
+  local new_version="v${major}.${minor:-0}.${patch:-0}"
+
+  git tag "$new_version"
+  echo "Nova tag criada: $new_version"
+}
+
+alias gnt='create_new_tag'
