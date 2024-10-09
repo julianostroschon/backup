@@ -58,7 +58,7 @@ alias deploy="infraDir && gl && docker compose run --rm tooling"
 alias generate="runner generate"
 
 ## version
-alias patichon="gcm && gl && addTag -v patch"
+alias patichon="gcm && gl && create_new_tag patch"
 
 create_new_tag() {
   local increment=$1
@@ -92,9 +92,12 @@ create_new_tag() {
   esac
 
   local new_version="v${major}.${minor:-0}.${patch:-0}"
-
-  git tag "$new_version"
+  npm version $NEW_TAG
+  # git tag "$new_version"
   echo "Nova tag criada: $new_version"
+
+  git push --tags
+  git push
 }
 
 alias gnt='create_new_tag'
