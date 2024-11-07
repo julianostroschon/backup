@@ -4,7 +4,7 @@ alias runner="nr"
 alias zconf="editor ~/.zshrc"
 alias zsource="source ~/.zshrc"
 
-
+alias getTag="git describe --tags --abbrev=0"
 alias dev="runner dev"
 ##remotos
 # alias odin="ssh odin@10.10.0.6"
@@ -12,6 +12,8 @@ alias dev="runner dev"
 alias lpartithura="ssh root@10.10.0.2"
 alias lelyte="ssh root@10.0.0.11"
 alias wpp-partithura="ssh root@165.22.35.110"
+alias homolog="ssh root@10.10.0.9"
+alias intranet="ssh intranet@10.10.0.7"
 
 alias gim="gitmoji -c"
 alias dcupd="docker-compose up -d"
@@ -57,8 +59,12 @@ alias gff="git flow feature finish"
 alias deploy="infraDir && gl && docker compose run --rm tooling"
 alias generate="runner generate"
 
+alias syncDevelop="gcd && gmm && gp" 
+
 ## version
-alias patichon="gcm && gl && create_new_tag patch"
+alias monirion="gcm && gl && ~/backup/gitversion -v minor && syncDevelop"
+alias patichon="gcm && gl && ~/backup/gitversion -v patch && syncDevelop"
+alias addTag="~/backup/gitversion -v"
 
 create_new_tag() {
   local increment=$1
