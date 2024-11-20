@@ -6,16 +6,15 @@ alias zsource="source ~/.zshrc"
 
 alias getTag="git describe --tags --abbrev=0"
 alias dev="runner dev"
+
 ##remotos
-# alias odin="ssh odin@10.10.0.6"
-# alias infra="ssh root@10.10.0.2"
+alias odin="ssh odin@10.10.0.6"
 alias lpartithura="ssh root@10.10.0.2"
 alias lelyte="ssh root@10.0.0.11"
 alias wpp-partithura="ssh root@165.22.35.110"
 alias homolog="ssh root@10.10.0.9"
 alias intranet="ssh intranet@10.10.0.7"
 
-alias gim="gitmoji -c"
 alias dcupd="docker-compose up -d"
 alias dcdwn="docker-compose down"
 alias recon="dcdwn -v && dcupd"
@@ -38,17 +37,15 @@ alias wtest="runner test:unit --watch"
 
 # # data-sync
 alias data-sync="Partithura && cd data-sync-injection"
-alias start="nvm use 18 && runner build && yarn run:erp"
-# alias stop="cd ~/Documents/data-sync-injection && nvm use 18 && yarn run:stop"
-alias cleanEnvTs="echo 'export default {} as Record<string, string | number>' > src/env.ts"
-alias buildall="gcm && gmm && runner build:all && cleanEnvTs"
 alias freeBuild="data-sync && cleanEnvTs && gcm && gmm && start"
 
 # # Whatsapp
 alias run:whats="cd /Users/julianostroschon/Documents/Projects/partithura/wpp-web && runner dev"
 
 ## git
+alias gim="gitmoji -c"
 alias gmm="git merge origin/master"
+alias gmd="git merge origin/develop"
 alias gaa="git add ."
 alias gim="gitmoji -c"
 alias gffs="git flow feature start"
@@ -59,51 +56,9 @@ alias gff="git flow feature finish"
 alias deploy="infraDir && gl && docker compose run --rm tooling"
 alias generate="runner generate"
 
-alias syncDevelop="gcd && gmm && gp" 
+alias syncDevelop="gcd && gl && gmm && gp" 
 
 ## version
 alias monirion="gcm && gl && ~/backup/gitversion -v minor && syncDevelop"
 alias patichon="gcm && gl && ~/backup/gitversion -v patch && syncDevelop"
 alias addTag="~/backup/gitversion -v"
-
-create_new_tag() {
-  local increment=$1
-  local current_version
-  current_version=$(git describe --tags --abbrev=0)
-
-  current_version=${current_version#v}
-
-  IFS='.' read -r major minor patch <<< "$current_version"
-  major=$(echo "$major" | sed 's/^0*//')
-  minor=$(echo "${minor:-0}" | sed 's/^0*//')
-  patch=$(echo "${patch:-0}" | sed 's/^0*//')
-
-  case $increment in
-    major)
-      major=$((major + 1))
-      minor=0
-      patch=0
-      ;;
-    minor)
-      minor=$((minor + 1))
-      patch=0
-      ;;
-    patch)
-      patch=$((patch + 1))
-      ;;
-    *)
-      echo "Uso: create_tag {major|minor|patch}"
-      return 1
-      ;;
-  esac
-
-  local new_version="v${major}.${minor:-0}.${patch:-0}"
-  npm version $NEW_TAG
-  # git tag "$new_version"
-  echo "Nova tag criada: $new_version"
-
-  git push --tags
-  git push
-}
-
-alias gnt='create_new_tag'
