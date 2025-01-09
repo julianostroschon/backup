@@ -6,25 +6,14 @@ alias zsource="source ~/.zshrc"
 
 alias getTag="git describe --tags --abbrev=0"
 alias dev="runner dev"
+source ~/backup/remotes
+source ~/backup/locals
 
-##remotos
-alias odin="ssh odin@10.10.0.6"
-alias lpartithura="ssh root@10.10.0.2"
-alias lelyte="ssh root@10.0.0.11"
-alias wpp-partithura="ssh root@165.22.35.110"
-alias homolog="ssh root@10.10.0.9"
-alias intranet="ssh intranet@10.10.0.7"
-
+alias sshRemote="editor ./remotes"
 alias dcupd="docker-compose up -d"
 alias dcdwn="docker-compose down"
 alias recon="dcdwn -v && dcupd"
 
-alias Projectss="cd ~/Documents/Projects"
-alias Partithura="Projectss && cd partithura"
-alias Paralelos="Projectss && cd paralelos"
-alias frontify="Partithura && cd frontend-vuetify"
-alias infraDir="Partithura && cd infra-devops"
-alias injectDir="Partithura && cd inject"
 alias allias="editor ~/backup/.aliases"
 
 # #back-node
@@ -47,7 +36,6 @@ alias gim="gitmoji -c"
 alias gmm="git merge origin/master"
 alias gmd="git merge origin/develop"
 alias gaa="git add ."
-alias gim="gitmoji -c"
 alias gffs="git flow feature start"
 alias gfs="gcd && gmm && gffs"
 alias gff="git flow feature finish"
@@ -59,6 +47,6 @@ alias generate="runner generate"
 alias syncDevelop="gcd && gl && gmm && gp" 
 
 ## version
-alias monirion="gcm && gl && ~/backup/gitversion -v minor && syncDevelop"
+alias minorion=" ~/backup/gitversion -v minor && syncDevelop"
 alias patichon="gcm && gl && ~/backup/gitversion -v patch && syncDevelop"
 alias addTag="~/backup/gitversion -v"
