@@ -120,6 +120,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source /opt/homebrew/opt/spaceship/spaceship.zsh
 source ~/backup/.aliases
+source ~/backup/fun.sh
+echo "source ~/backup/fun"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh #autosuggestions
 export PATH="/opt/homebrew/opt/ruby@2.7/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -132,3 +134,21 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+function pdump_local_dev() {
+    cd ~/Downloads/db_bkp/
+    # gzip -d ./$1.pg_dump.gz
+    pdump_hr_fresh
+    pg_restore -h localhost  -p 15432 -U root -d local "$1.pg_dump" 
+
+    psql -h localhost -p 15432 -U root -d local -c "
+      UPDATE \"cfgEmpresasConfigs\" 
+      SET \"valorChave\" = 'http://10.10.0.201:3333'
+      WHERE \"chaveId\" = 273
+    "
+
+    # redis-cli -u redis://root:root@localhost:6379 FLUSHALL
+    
+    rm "$1.pg_dump"
+    # rm "$1.pg_dump.gz" 
+}

@@ -1,0 +1,253 @@
+{
+  // Editor settings
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.8,
+  "editor.inlayHints.enabled": "off",
+  "editor.parameterHints.enabled": false,
+  "editor.renderLineHighlight": "all",
+  "editor.suggestSelection": "first",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.tabSize": 2,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.accessibilitySupport": "off",
+  "editor.inlineSuggest.enabled": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.minimap.enabled": false,
+  "editor.semanticHighlighting.enabled": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.ts": "explicit",
+    "source.addMissingImports.ts": "never",
+    "rules.source.fixAll.eslint": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll": "explicit",
+  },
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Language specific settings
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[prisma]": {
+    "editor.formatOnSave": true
+  },
+  // JavaScript and TypeScript settings
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.semicolons": "remove",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.suggest.autoImports": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "go.inlayHints.assignVariableTypes": true,
+  "go.inlayHints.parameterNames": true,
+  // Explorer settings
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrder": "foldersNestsFiles",
+  "explorer.fileNesting.patterns": {
+    "package.json": ".eslint*, prettier*, tsconfig*, vite*, pnpm-lock*, bun.lockb, nest*",
+    "tailwind.config.js": "tailwind.config*, postcss.config*",
+    ".env.local": ".env*",
+    ".env": ".env*"
+  },
+  "eslint.validate": [
+    "javascript",
+    "vue",
+    "graphql",
+    "typescript"
+  ],
+  "explorer.fileNesting.enabled": true,
+  // Terminal settings
+  "terminal.integrated.showExitAlert": false,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.gpuAcceleration": "off",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1",
+    "Q_NEW_SESSION": "1"
+  },
+  // Git settings
+  "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "always",
+  "gitlens.codeLens.recentChange.enabled": true,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.graph.minimap.additionalTypes": [
+    "localBranches",
+    "stashes",
+    "remoteBranches",
+    "tags"
+  ],
+  // GitHub settings
+  "githubIssues.queries": [
+    {
+      "label": "My Issues",
+      "query": "is:open assignee:${user} repo:${owner}/${repository}",
+      "groupBy": [
+        "milestone"
+      ]
+    },
+    {
+      "label": "Created Issues",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Recent Issues",
+      "query": "state:open repo:${owner}/${repository} sort:updated-desc"
+    }
+  ],
+  "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pushBranch": "always",
+  "githubPullRequests.queries": [],
+  // Files settings
+  "files.associations": {
+    ".env.*": "dotenv",
+    ".prettierrc": "json",
+    "*.css": "css"
+  },
+  "files.exclude": {
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/.git": true,
+    ".vscode": true
+  },
+  "files.autoSave": "afterDelay",
+  // Other settings
+  "extensions.ignoreRecommendations": true,
+  "typescript.tsserver.log": "off",
+  "cSpell.language": "en,pt",
+  "cSpell.userWords": [
+    "Datetime"
+  ],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "breadcrumbs.enabled": true,
+  "workbench.editor.labelFormat": "short",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "symbols",
+  "workbench.colorTheme": "Bearded Theme Arc Blueberry",
+  "workbench.statusBar.visible": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.location": "top",
+  "workbench.editor.empty.hint": "hidden",
+  "window.titleBarStyle": "custom",
+  "window.commandCenter": false,
+  "update.mode": "start",
+  "update.showReleaseNotes": false,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "security.promptForLocalFileProtocolHandling": false,
+  // APC settings
+  "apc.activityBar": {
+    "position": "bottom",
+    "hideSettings": true,
+    "size": 48,
+    "itemMargin": 8,
+    "itemSize": 32
+  },
+  "apc.electron": {
+    "titleBarStyle": "customButtonsOnHover",
+    "trafficLightPosition": {
+      "x": 11,
+      "y": 10
+    },
+    "frame": false
+  },
+  "apc.header": {
+    "height": 20
+  },
+  "apc.listRow": {
+    "height": 24
+  },
+  "apc.font.family": "Inter",
+  "apc.stylesheet": {
+    ".title-label > h2": "display: none",
+    ".editor-actions": "display: none",
+    ".nosidebar .inline-tabs-placeholder": "width: 75px",
+    ".pane-header": "padding: 0 8px",
+    ".pane-body": "padding: 8px",
+    ".split-view-view:first-child .pane-header": "display: none !important;",
+    ".monaco-list-row": "border-radius: 4px;",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "display: none;"
+  },
+  // Total TypeScript settings
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": true,
+  // Markdown Preview Enhanced settings
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "symbols.hidesExplorerArrows": false,
+  "go.toolsManagement.autoUpdate": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.colorCustomizations": {
+    "terminal.background": "#00000000",
+    "activityBar.activeBackground": "#f4aaa4",
+    "activityBar.background": "#f4aaa4",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#118e1b",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#f4aaa4",
+    "statusBar.background": "#ee7f77",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#e8544a",
+    "statusBarItem.remoteBackground": "#ee7f77",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#ee7f77",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#ee7f7799",
+    "titleBar.inactiveForeground": "#15202b99",
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f",
+    "activityBar.activeBorder": "#e24e3d"
+  },
+  "workbench.settings.applyToAllProfiles": [
+    "workbench.colorCustomizations"
+  ],
+  "editor.wordWrap": "off",
+  "diffEditor.wordWrap": "off",
+  "editor.guides.indentation": false,
+  "editor.guides.bracketPairs": false,
+  "terminal.integrated.stickyScroll.enabled": false,
+  "git.autofetch": true,
+  "terminal.integrated.suggest.enabled": true,
+  "diffEditor.experimental.showMoves": true,
+  "terminal.external.osxExec": "Warp.app",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "settingsSync.ignoredExtensions": [
+    "wallabyjs.console-ninja"
+  ],
+  "augment.chat.userGuidelines": ""
+}

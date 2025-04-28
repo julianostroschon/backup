@@ -47,6 +47,6 @@ alias generate="runner generate"
 alias syncDevelop="gcd && gl && gmm && gp" 
 
 ## version
-alias minorion=" ~/backup/gitversion -v minor && syncDevelop"
-alias patichon="gcm && gl && ~/backup/gitversion -v patch && syncDevelop"
+alias minorion=" ~/backup/gitversion -v minor"
+alias patichon="gl && ~/backup/gitversion -v patch"
 alias addTag="~/backup/gitversion -v"
